@@ -751,6 +751,20 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div class="skshine-ba-caption"><strong>Раковина · спецприбирання</strong><span>Потягніть лінію, щоб порівняти</span></div>
 </article>
+
+<article class="skshine-ba-card">
+<div class="skshine-ba" style="--pos:50%">
+<div class="skshine-ba-media">
+<img alt="Духова шафа — до прибирання" class="skshine-ba-before" loading="lazy" src="ba/oven-before.png"/>
+<img alt="Духова шафа — після прибирання" class="skshine-ba-after" loading="lazy" src="ba/oven-after.png"/>
+<span class="skshine-ba-label skshine-ba-label-before">До</span>
+<span class="skshine-ba-label skshine-ba-label-after">Після</span>
+<span aria-hidden="true" class="skshine-ba-handle"><span>↔</span></span>
+<input aria-label="Порівняти до і після: Духова шафа" class="skshine-ba-range" max="100" min="0" type="range" value="50"/>
+</div>
+</div>
+<div class="skshine-ba-caption"><strong>Духова шафа · спецприбирання</strong><span>Потягніть лінію, щоб порівняти</span></div>
+</article>
 </div>
 <div class="skshine-ba-cta"><a href="#lead-form">Хочу такий результат →</a></div>
 </div>
@@ -1152,7 +1166,16 @@ try {
 @media(max-width:767px){.skshine-contact-rail{right:10px;top:auto;bottom:78px;transform:none;gap:8px}.skshine-cr-btn{width:42px;height:42px}.skshine-cr-btn svg{width:19px;height:19px}.skshine-cr-tip{display:none}}
 @media(prefers-reduced-motion:reduce){.skshine-cr-call{animation:none}.skshine-cr-btn{transition:none}}
 </style>
-<style>@media(min-width:901px){.skshine-ba-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}}</style></body></html>
+<style>@media(min-width:901px){.skshine-ba-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}}</style><style>
+@media(min-width:901px){
+  .skshine-ba-grid{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:14px!important}
+  .skshine-ba-card{flex:0 1 calc((100% - 28px)/3)!important;max-width:calc((100% - 28px)/3)!important}
+}
+@media(max-width:900px) and (min-width:561px){
+  .skshine-ba-grid{display:flex!important;flex-wrap:wrap!important;justify-content:center!important}
+  .skshine-ba-card{flex:0 1 calc((100% - 14px)/2)!important;max-width:calc((100% - 14px)/2)!important}
+}
+</style></body></html>
 <!--
 Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/?utm_source=w3tc&utm_medium=footer_comment&utm_campaign=free_plugin
 
