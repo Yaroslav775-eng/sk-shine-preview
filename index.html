@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </a>
 <a class="skshine-price-card" href="https://skshine.com.ua/prybyrannia-pislia-kvartyrantiv/">
 <span class="skshine-price-name">Після квартирантів</span>
-<span class="skshine-price-value">70–80 <small>грн/м²</small></span>
+<span class="skshine-price-value">80–90 <small>грн/м²</small></span>
 <span class="skshine-price-arrow">Детальніше <span>→</span></span>
 </a>
 <a class="skshine-price-card" href="https://skshine.com.ua/myttia-vikon-vitryn-fasadiv/">
@@ -325,46 +325,236 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="skshine-calc" id="skshine-calc">
 <span class="skshine-calc-kicker">Розрахунок</span>
 <h3>Порахувати вартість</h3>
-<p class="skshine-calc-sub">Оберіть послугу та площу — сума з’явиться одразу.</p>
+<p class="skshine-calc-sub">Оберіть послугу, площу та додаткові роботи — сума з’явиться одразу.</p>
 <div class="skshine-calc-proof"><span class="skshine-calc-stars">★★★★★</span><a href="https://www.google.com/maps/search/?api=1&amp;query=SK%20SHINE%20%D0%A5%D0%BC%D0%B5%D0%BB%D1%8C%D0%BD%D0%B8%D1%86%D1%8C%D0%BA%D0%B8%D0%B9" rel="noopener" target="_blank">4,9 · 50+ відгуків Google</a></div>
-<div class="skshine-calc-facts">
-<span>Хмельницький та область</span>
-<span>Передзвонимо за 3 хв</span>
-<span>Viber / Telegram</span>
-</div>
+<div class="skshine-calc-facts"><span>Хмельницький та область</span><span>Передзвонимо за 3 хв</span><span>Viber / Telegram</span></div>
 <label class="skshine-calc-label">Послуга
-    <select id="skshine-calc-service"><option selected="selected" value="">Оберіть послугу</option>
-<option value="general">Генеральне прибирання</option>
-<option value="repair">Після ремонту</option>
-<option value="tenants">Після квартирантів</option>
+    <select id="skshine-calc-service">
+<option value="">Оберіть послугу</option>
+<optgroup label="Прибирання за площею">
 <option value="support">Підтримуюче прибирання</option>
+<option value="general">Генеральне прибирання</option>
+<option value="repair">Прибирання після ремонту</option>
+<option value="tenants">Прибирання після квартирантів</option>
+<option value="floor">Миття підлоги машинкою</option>
+<option value="special">Спец прибирання</option>
+</optgroup>
+<optgroup label="Фіксовані послуги">
+<option value="kitchen_std">Чиста кухня — Standart</option>
+<option value="kitchen_premium">Чиста кухня — Premium</option>
+<option value="bath_std">Чиста ванна — Standart</option>
+<option value="bath_premium">Чиста ванна — Premium</option>
+</optgroup>
+<optgroup label="Миття вікон">
+<option value="windows_seasonal">Сезонне миття вікон</option>
+<option value="windows_after">Миття вікон після ремонту</option>
+</optgroup>
 </select>
 </label>
-<label class="skshine-calc-label">Площа, м²
-    <input id="skshine-calc-area" inputmode="numeric" max="1000" min="10" placeholder="Введіть площу, наприклад 50" step="1" type="number" value=""/>
+<label class="skshine-calc-label skshine-calc-area-wrap" id="skshine-calc-area-wrap">Площа, м²
+    <input id="skshine-calc-area" inputmode="numeric" max="10000" min="1" placeholder="Введіть площу" step="1" type="number" value=""/>
 </label>
-<div aria-live="polite" class="skshine-calc-result">
-<span>Орієнтовна вартість</span>
-<strong id="skshine-calc-total">—</strong>
+<details class="skshine-calc-addons">
+<summary>Додаткові послуги <span>необов’язково</span></summary>
+<div class="skshine-addons-grid"><label class="skshine-addon">
+<input data-key="cabinets" data-name="Кухонні шафи всередині" data-price="700" type="checkbox"/>
+<span class="skshine-addon-name">Кухонні шафи всередині</span>
+<span class="skshine-addon-price">від 700 грн</span>
+<input aria-label="Кількість: Кухонні шафи всередині" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">шт</span>
+</label><label class="skshine-addon">
+<input data-key="fridge" data-name="Холодильник / морозильна камера" data-price="800" type="checkbox"/>
+<span class="skshine-addon-name">Холодильник / морозильна камера</span>
+<span class="skshine-addon-price">від 800 грн</span>
+<input aria-label="Кількість: Холодильник / морозильна камера" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">шт</span>
+</label><label class="skshine-addon">
+<input data-key="oven" data-name="Духова шафа" data-price="500" type="checkbox"/>
+<span class="skshine-addon-name">Духова шафа</span>
+<span class="skshine-addon-price">від 500 грн</span>
+<input aria-label="Кількість: Духова шафа" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">шт</span>
+</label><label class="skshine-addon">
+<input data-key="microwave" data-name="Мікрохвильова піч" data-price="300" type="checkbox"/>
+<span class="skshine-addon-name">Мікрохвильова піч</span>
+<span class="skshine-addon-price">від 300 грн</span>
+<input aria-label="Кількість: Мікрохвильова піч" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">шт</span>
+</label><label class="skshine-addon">
+<input data-key="hood" data-name="Витяжка" data-price="400" type="checkbox"/>
+<span class="skshine-addon-name">Витяжка</span>
+<span class="skshine-addon-price">від 400 грн</span>
+<input aria-label="Кількість: Витяжка" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">шт</span>
+</label><label class="skshine-addon">
+<input data-key="multicooker" data-name="Мультиварка" data-price="200" type="checkbox"/>
+<span class="skshine-addon-name">Мультиварка</span>
+<span class="skshine-addon-price">від 200 грн</span>
+<input aria-label="Кількість: Мультиварка" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">шт</span>
+</label><label class="skshine-addon">
+<input data-key="grill" data-name="Гриль" data-price="300" type="checkbox"/>
+<span class="skshine-addon-name">Гриль</span>
+<span class="skshine-addon-price">від 300 грн</span>
+<input aria-label="Кількість: Гриль" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">шт</span>
+</label><label class="skshine-addon">
+<input data-key="kettle" data-name="Чайник" data-price="250" type="checkbox"/>
+<span class="skshine-addon-name">Чайник</span>
+<span class="skshine-addon-price">від 250 грн</span>
+<input aria-label="Кількість: Чайник" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">шт</span>
+</label><label class="skshine-addon">
+<input data-key="dishes" data-name="Миття посуду" data-price="200" type="checkbox"/>
+<span class="skshine-addon-name">Миття посуду</span>
+<span class="skshine-addon-price">від 200 грн</span>
+<input aria-label="Кількість: Миття посуду" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">год</span>
+</label><label class="skshine-addon">
+<input data-key="washer" data-name="Пральна машина" data-price="400" type="checkbox"/>
+<span class="skshine-addon-name">Пральна машина</span>
+<span class="skshine-addon-price">від 400 грн</span>
+<input aria-label="Кількість: Пральна машина" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">шт</span>
+</label><label class="skshine-addon">
+<input data-key="dishwasher" data-name="Посудомийна машина" data-price="400" type="checkbox"/>
+<span class="skshine-addon-name">Посудомийна машина</span>
+<span class="skshine-addon-price">від 400 грн</span>
+<input aria-label="Кількість: Посудомийна машина" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">шт</span>
+</label><label class="skshine-addon">
+<input data-key="clothes" data-name="Складання речей у шафах" data-price="300" type="checkbox"/>
+<span class="skshine-addon-name">Складання речей у шафах</span>
+<span class="skshine-addon-price">від 300 грн</span>
+<input aria-label="Кількість: Складання речей у шафах" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">год</span>
+</label><label class="skshine-addon">
+<input data-key="laundry" data-name="Прання" data-price="200" type="checkbox"/>
+<span class="skshine-addon-name">Прання</span>
+<span class="skshine-addon-price">від 200 грн</span>
+<input aria-label="Кількість: Прання" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">год</span>
+</label><label class="skshine-addon">
+<input data-key="ironing" data-name="Прасування" data-price="300" type="checkbox"/>
+<span class="skshine-addon-name">Прасування</span>
+<span class="skshine-addon-price">від 300 грн</span>
+<input aria-label="Кількість: Прасування" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">год</span>
+</label><label class="skshine-addon">
+<input data-key="radiators" data-name="Батареї" data-price="200" type="checkbox"/>
+<span class="skshine-addon-name">Батареї</span>
+<span class="skshine-addon-price">від 200 грн</span>
+<input aria-label="Кількість: Батареї" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">шт</span>
+</label><label class="skshine-addon">
+<input data-key="chandelier" data-name="Люстра" data-price="200" type="checkbox"/>
+<span class="skshine-addon-name">Люстра</span>
+<span class="skshine-addon-price">від 200 грн</span>
+<input aria-label="Кількість: Люстра" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">шт</span>
+</label><label class="skshine-addon">
+<input data-key="ceiling" data-name="Натяжна стеля" data-price="70" type="checkbox"/>
+<span class="skshine-addon-name">Натяжна стеля</span>
+<span class="skshine-addon-price">від 70 грн</span>
+<input aria-label="Кількість: Натяжна стеля" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">м²</span>
+</label><label class="skshine-addon">
+<input data-key="seams" data-name="Чистка швів / плитки" data-price="70" type="checkbox"/>
+<span class="skshine-addon-name">Чистка швів / плитки</span>
+<span class="skshine-addon-price">від 70 грн</span>
+<input aria-label="Кількість: Чистка швів / плитки" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">м²</span>
+</label><label class="skshine-addon">
+<input data-key="drying" data-name="Сушка" data-price="100" type="checkbox"/>
+<span class="skshine-addon-name">Сушка</span>
+<span class="skshine-addon-price">від 100 грн</span>
+<input aria-label="Кількість: Сушка" class="skshine-addon-qty" max="99" min="1" type="number" value="1"/>
+<span class="skshine-addon-unit">год</span>
+</label></div>
+</details>
+<div aria-live="polite" class="skshine-calc-result"><span>Орієнтовна вартість — від</span><strong id="skshine-calc-total">—</strong><small id="skshine-calc-breakdown"></small></div>
+<p class="skshine-calc-note">Це орієнтовна вартість за прайсом. Точну суму підтвердимо після уточнення площі, стану приміщення та додаткових робіт.</p>
+<a class="skshine-calc-cta" href="#lead-form">Отримати точний розрахунок</a>
+<a class="skshine-calc-phone" href="tel:+380989634202">або зателефонувати</a>
 </div>
-<p class="skshine-calc-note">Це не остаточна ціна, а орієнтовний розрахунок. Точну вартість підтвердимо після уточнення площі, забруднення та додаткових робіт.</p>
-<a class="skshine-calc-cta" href="#lead-form">Отримати точний розрахунок</a><a class="skshine-calc-phone" href="tel:+380989634202">або зателефонувати</a>
-</div>
-</div><script>
+<style>
+.skshine-calc-area-wrap[hidden]{display:none!important}
+.skshine-calc-addons{margin:14px 0 4px;border:1px solid #e2dbce;border-radius:12px;background:#fbfaf7;overflow:hidden}
+.skshine-calc-addons summary{list-style:none;cursor:pointer;padding:12px 13px;font:600 12px Poppins,sans-serif;color:#1f2933;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.skshine-calc-addons summary::-webkit-details-marker{display:none}
+.skshine-calc-addons summary:after{content:"+";font-size:16px;color:#b08a3e;line-height:1}
+.skshine-calc-addons[open] summary:after{content:"−"}
+.skshine-calc-addons summary span{font-weight:400;font-size:10px;color:#8a8378;text-transform:uppercase;letter-spacing:.05em;margin-left:auto;margin-right:8px}
+.skshine-addons-grid{display:grid;grid-template-columns:1fr;gap:1px;border-top:1px solid #e2dbce;max-height:280px;overflow:auto;padding:6px}
+.skshine-addon{display:grid;grid-template-columns:18px minmax(0,1fr) auto 52px 26px;align-items:center;gap:7px;padding:7px 6px;border-radius:7px;font-family:Poppins,sans-serif;cursor:pointer}
+.skshine-addon:hover{background:#fff}
+.skshine-addon input[type=checkbox]{width:15px;height:15px;accent-color:#b08a3e;margin:0}
+.skshine-addon-name{font-size:11px;line-height:1.3;color:#3d4650}
+.skshine-addon-price{font-size:10px;color:#8a8378;white-space:nowrap}
+.skshine-addon-qty{width:52px;height:28px;border:1px solid #ddd3c1;border-radius:6px;background:#fff;text-align:center;font:11px Poppins,sans-serif;color:#1f2933;padding:0 3px}
+.skshine-addon-qty:disabled{opacity:.45}
+.skshine-addon-unit{font-size:10px;color:#8a8378;white-space:nowrap}
+.skshine-calc-result small{display:block;font:11px Poppins,sans-serif;color:#8a8378;margin-top:3px;min-height:14px}
+@media(max-width:560px){.skshine-addon{grid-template-columns:17px minmax(0,1fr) 48px 24px;gap:6px}.skshine-addon-price{grid-column:2;grid-row:2;font-size:9px}.skshine-addon-name{font-size:10px}.skshine-addons-grid{max-height:320px}}
+</style>
+<script>
 (function(){
-  var rates={general:[[50,90],[100,85],[Infinity,80]],repair:[[50,90],[100,85],[Infinity,80]],tenants:[[50,80],[100,75],[Infinity,70]],support:[[Infinity,40]]};
-  var s=document.getElementById('skshine-calc-service'),a=document.getElementById('skshine-calc-area'),t=document.getElementById('skshine-calc-total');
+  var s=document.getElementById('skshine-calc-service');
+  var a=document.getElementById('skshine-calc-area');
+  var t=document.getElementById('skshine-calc-total');
+  var b=document.getElementById('skshine-calc-breakdown');
+  var aw=document.getElementById('skshine-calc-area-wrap');
   if(!s||!a||!t) return;
   var fmt=new Intl.NumberFormat('uk-UA');
-  function calc(){
-    var area=parseFloat(a.value||0),list=rates[s.value]||[],rate=0;
-    for(var i=0;i<list.length;i++){if(area<=list[i][0]){rate=list[i][1];break;}}
-    if(!s.value||!area||area<10||!rate){t.textContent='—';return;}
-    t.textContent=fmt.format(Math.round(area*rate))+' грн';
+  var areaTiers={
+    support:[[50,50],[100,45],[Infinity,40]],
+    general:[[50,90],[100,85],[Infinity,80]],
+    repair:[[50,90],[100,85],[Infinity,80]],
+    tenants:[[50,90],[100,85],[Infinity,80]],
+    floor:[[100,60],[500,50],[1000,40]],
+    special:[[Infinity,250]],
+    windows_seasonal:[[Infinity,160]],
+    windows_after:[[Infinity,190]]
+  };
+  var fixedRates={kitchen_std:2500,kitchen_premium:3300,bath_std:1500,bath_premium:2700};
+  function updateArea(){
+    var v=s.value, fixed=!!fixedRates[v];
+    aw.hidden=fixed;
+    var label=aw.firstChild;
+    if(label && label.nodeType===3){
+      label.textContent=(v==='windows_seasonal'||v==='windows_after')?'Площа вікон, м²':'Площа, м²';
+    }
   }
-  s.addEventListener('change',calc);a.addEventListener('input',calc);calc();
+  function calc(){
+    updateArea();
+    var v=s.value, area=parseFloat(a.value||0), base=0;
+    if(!v){t.textContent='—';if(b)b.textContent='';return;}
+    if(fixedRates[v]){base=fixedRates[v];}
+    else{
+      var tiers=areaTiers[v];
+      if(!tiers||!area||area<1){t.textContent='—';if(b)b.textContent='';return;}
+      var rate=0;
+      for(var i=0;i<tiers.length;i++){if(area<=tiers[i][0]){rate=tiers[i][1];break;}}
+      if(!rate){t.textContent='—';if(b)b.textContent='Уточнюється';return;}
+      base=area*rate;
+    }
+    var extra=0;
+    document.querySelectorAll('.skshine-addon input[type=checkbox]:checked').forEach(function(cb){
+      var q=cb.closest('.skshine-addon').querySelector('.skshine-addon-qty');
+      var qty=parseFloat(q&&q.value||1); if(!qty||qty<1) qty=1;
+      extra += parseFloat(cb.dataset.price||0)*qty;
+    });
+    var total=Math.round(base+extra);
+    t.textContent='від '+fmt.format(total)+' грн';
+    if(b) b.textContent=extra>0?('Послуга: '+fmt.format(Math.round(base))+' грн · додатково: '+fmt.format(Math.round(extra))+' грн'):'';
+  }
+  s.addEventListener('change',calc);
+  a.addEventListener('input',calc);
+  document.querySelectorAll('.skshine-addon input').forEach(function(el){el.addEventListener('change',calc);el.addEventListener('input',calc);});
+  calc();
 })();
-</script><p class="skshine-prices-note">Ціни залежать від площі та стану приміщення. Калькулятор поруч покаже орієнтовну суму, точну — підтвердимо після уточнення.</p>
+</script>
+</div><p class="skshine-prices-note">Ціни залежать від площі та стану приміщення. Калькулятор поруч покаже орієнтовну суму, точну — підтвердимо після уточнення.</p>
 </div>
 <style>
 .skshine-prices-section{background:#eeebe3;padding:88px 0 76px;color:#1f2933}
